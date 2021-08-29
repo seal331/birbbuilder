@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "BirbBuilder Init System r1"
+echo "Making temporary directory..."
+mkdir -p ~/birbtmp
+echo "Copying BirbOS source code..."
+cp $(dirname $(readlink -f $0))/birbsrc.tar.gz ~/birbtmp/
+echo "Unpacking BirbOS source code..."
+cd ~/birbtmp
+tar -xf birbsrc.tar.gz
+echo "Running BirbBuilder..."
+./birbbuilder_s2
+echo "Cleaning temporary directory..."
+cd ~
+rm -rf birbtmp
+echo "Done, thanks for using BirbBuilder"
